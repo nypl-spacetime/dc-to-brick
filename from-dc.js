@@ -11,8 +11,11 @@ const fs = require('fs')
 const digitalCollections = require('digital-collections')
 const H = require('highland')
 const JSONStream = require('JSONStream')
+const levelup = require('level')
 
 const token = argv.t || process.env.DIGITAL_COLLECTIONS_TOKEN
+
+var db = levelup('./mods_cache')
 
 function getImageUrls(capture) {
   const sizes = {
@@ -21,20 +24,22 @@ function getImageUrls(capture) {
     v: 2560
   }
 
-  if (!capture || !capture.imageLinks || !capture.imageLinks.imageLink) {
-    console.error(`No image URLs found for ${capture.id}`)
-    return null
+  if (capture && capture.imageLinks && capture.imageLinks.imageLink) {
+    const links = capture.imageLinks.imageLink
+    return Object.keys(sizes)
+      .filter((size) => links.filter((link) => link.includes(`&t=${size}`)).length)
+      .map((size) => ({
+        size: sizes[size],
+        url: `http://images.nypl.org/index.php?id=${capture.imageID}&t=${size}`
+      }))
+  } else {
+    return [
+      {
+        size: 760,
+        url: `http://images.nypl.org/index.php?id=${capture.imageID}&t=w`
+      }
+    ]
   }
-
-  const links = capture.imageLinks.imageLink
-  const urls = Object.keys(sizes)
-    .filter((size) => links.filter((link) => link.includes(`&t=${size}`)).length)
-    .map((size) => ({
-      size: sizes[size],
-      url: `http://images.nypl.org/index.php?id=${capture.imageID}&t=${size}`
-    }))
-
-  return urls
 }
 
 function toRow(capture) {
@@ -99,17 +104,28 @@ function modsToMetadata(mods) {
 }
 
 function getMODS(row, callback) {
-  digitalCollections.mods({
-    uuid: row.id,
-    token: token
-  }, (error, mods) => {
-    if (error) {
-      callback(error)
-      return
-    }
+  db.get(row.id, function (err, meta) {
+    if (err) {
+      digitalCollections.mods({
+        uuid: row.id,
+        token: token
+      }, (error, mods) => {
+        if (error) {
+          callback(error)
+          return
+        }
 
-    row.meta = Object.assign(row.meta, modsToMetadata(mods))
-    callback(null, row)
+        const meta = modsToMetadata(mods)
+
+        db.put(row.id, meta, function (err) {
+          row.meta = Object.assign(row.meta, meta)
+          callback(null, row)
+        })
+      })
+    } else {
+      row.meta = Object.assign(row.meta, meta)
+      callback(null, row)
+    }
   })
 }
 
@@ -124,7 +140,7 @@ function getCollection(collection) {
   .flatten()
 }
 
-H(require('./collections.json'))
+H(require('./data/collections.json'))
   .map(getCollection)
   .flatten()
   .map(toRow)
