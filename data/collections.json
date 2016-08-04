@@ -24,12 +24,6 @@
     "include": true
   },
   {
-    "uuid": "439afdd0-c62b-012f-66d1-58d385a7bc34",
-    "title": "Detroit Publishing Company postcards",
-    "url": "http://digitalcollections.nypl.org/collections/detroit-publishing-company-postcards#/?tab=about",
-    "include": false
-  },
-  {
     "uuid": "34007fd0-c6d2-012f-5566-58d385a7bc34",
     "title": "Pictorial Description of Broadway",
     "url": "http://digitalcollections.nypl.org/collections/pictorial-description-of-broadway#/?tab=about",
@@ -44,7 +38,7 @@
   {
     "uuid": "43a4cad0-7267-0132-4582-58d385a7bbd0",
     "title": "Morris Rosenfeld Photographs",
-    "url": "http://digitalcollections.nypl.org/collections/morris-rosenfeld-photographs#/?tab=about"
+    "url": "http://digitalcollections.nypl.org/collections/morris-rosenfeld-photographs#/?tab=about",
     "include": true
   },
   {

@@ -85,7 +85,7 @@ function getMODSDate(mods) {
     originInfo = [originInfo]
   }
 
-  var date = originInfo.filter((o) => o.dateCreated || o.dateIssued || o.dateOther)
+  var date = originInfo.filter((o) => o && (o.dateCreated || o.dateIssued || o.dateOther))
     .map((o) => o.dateCreated || o.dateIssued || o.dateOther)
     .filter((o) => o.keyDate)
     .map(o => o['$'])
