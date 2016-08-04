@@ -104,7 +104,7 @@ function modsToMetadata(mods) {
 }
 
 function getMODS(row, callback) {
-  db.get(row.id, function (err, meta) {
+  db.get(row.id, function (err, metaStr) {
     if (err) {
       digitalCollections.mods({
         uuid: row.id,
@@ -117,13 +117,13 @@ function getMODS(row, callback) {
 
         const meta = modsToMetadata(mods)
 
-        db.put(row.id, meta, function (err) {
+        db.put(row.id, JSON.stringify(meta), function (err) {
           row.meta = Object.assign(row.meta, meta)
           callback(null, row)
         })
       })
     } else {
-      row.meta = Object.assign(row.meta, meta)
+      row.meta = Object.assign(row.meta, JSON.parse(metaStr))
       callback(null, row)
     }
   })

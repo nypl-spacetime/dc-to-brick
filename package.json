@@ -8,12 +8,14 @@
     "digital-collections": "0.0.6",
     "highland": "^3.0.0-beta.2",
     "level": "^1.4.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "pg": "^6.0.3",
+    "ramda": "^0.21.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
