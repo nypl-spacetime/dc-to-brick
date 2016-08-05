@@ -33,7 +33,7 @@
     "uuid": "66614620-c6ca-012f-0a98-58d385a7bc34",
     "title": "Fifth Avenue, New York, from start to finish",
     "url": "http://digitalcollections.nypl.org/collections/fifth-avenue-new-york-from-start-to-finish#/?tab=about",
-    "exclude": true
+    "include": true
   },
   {
     "uuid": "43a4cad0-7267-0132-4582-58d385a7bbd0",
