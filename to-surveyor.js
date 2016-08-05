@@ -15,27 +15,40 @@ const collections = require('./data/collections.json')
 const collectionsMap = {}
 collections.forEach((collection) => collectionsMap[collection.id] = true)
 
-db.fillTable('collections', collections, (err) => {
-  if (err) {
-    console.error('Error filling collections table: ', err.message)
-    process.exit(1)
-  }
-})
-
 const items = require('./data/items.json')
   .filter((item) => collectionsMap[item.collection_id])
   .map((item) => {
     item.image_urls = JSON.stringify(item.image_urls)
-
-
-
-
     return item
   })
 
-db.fillTable('items', items, (err) => {
-  if (err) {
-    console.error('Error filling items table: ', err.message)
-    process.exit(1)
-  }
+
+function fillCollections(callback) {
+  db.fillTable('collections', collections, (err) => {
+    if (err) {
+      console.error('Error filling collections table: ', err.message)
+      process.exit(1)
+    }
+
+    if (callback) {
+      callback()
+    }
+  })
+}
+
+function fillItems(callback) {
+  db.fillTable('items', items, (err) => {
+    if (err) {
+      console.error('Error filling items table: ', err.message)
+      process.exit(1)
+    }
+
+    if (callback) {
+      callback()
+    }
+  })
+}
+
+fillCollections(() => {
+  fillItems()
 })
