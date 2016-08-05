@@ -47,8 +47,6 @@
     "url": "http://digitalcollections.nypl.org/collections/collection-of-photographs-of-east-river-and-hudson-river-piers-manhattan#/?tab=about",
     "include": true
   },
-
-
   {
     "uuid": "439afdd0-c62b-012f-66d1-58d385a7bc34",
     "title": "Detroit Publishing Company postcards",
@@ -59,7 +57,7 @@
     "uuid": "0f38cb80-c5ae-012f-b01b-58d385a7bc34",
     "title": "Doors, NYC",
     "url": "http://digitalcollections.nypl.org/collections/doors-nyc#/?tab=about",
-    "include": false
+    "include": true
   },
   {
     "uuid": "aa9332d0-8a24-0132-6303-58d385a7b928",
@@ -77,6 +75,54 @@
     "uuid": "36bd8b70-c60e-012f-f701-58d385a7bc34",
     "title": "Collection of photographs of New York City, 1931-1942",
     "url": "http://digitalcollections.nypl.org/collections/collection-of-photographs-of-new-york-city-1931-1942#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "726a47e0-c6cb-012f-fceb-58d385a7bc34",
+    "title": "Movie Houses of the Outer Boroughs: Past Glory and Adaptive Reuse, 1998-2001; a portfolio",
+    "url": "http://digitalcollections.nypl.org/collections/movie-houses-of-the-outer-boroughs-past-glory-and-adaptive-reuse-1998-2001#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "b5533200-c6f6-012f-a39f-58d385a7bc34",
+    "title": "Villas on the Hudson : a collection of photo-lithographs of thirty-one country residences",
+    "url": "http://digitalcollections.nypl.org/collections/villas-on-the-hudson-a-collection-of-photo-lithographs-of-thirty-one-country#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "0378bd40-c6b4-012f-18bd-58d385a7bc34",
+    "title": "Central park in 1862. [Collection of photographs in portfolio, without text] Published by special permission of the commission",
+    "url": "http://digitalcollections.nypl.org/collections/central-park-in-1862-collection-of-photographs-in-portfolio-without-text#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "e48572c0-c5d6-012f-97ee-58d385a7bc34",
+    "title": "Photographs taken by inspectors of the New York City Tenement House Department",
+    "url": "http://digitalcollections.nypl.org/collections/photographs-taken-by-inspectors-of-the-new-york-city-tenement-house-department#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "1e5da0d0-c6c0-012f-cb11-58d385a7bc34",
+    "title": "Photographs of the construction of the Holland Tunnel, 1919-1927",
+    "url": "http://digitalcollections.nypl.org/collections/photographs-of-the-construction-of-the-holland-tunnel-1919-1927#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "282137f0-c610-012f-cf2a-58d385a7bc34",
+    "title": "Photographs of the Catskill water supply system in process of construction",
+    "url": "http://digitalcollections.nypl.org/collections/photographs-of-the-catskill-water-supply-system-in-process-of-construction#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "8ab643a0-c6eb-012f-5bd7-58d385a7bc34",
+    "title": "Street views of New York City",
+    "url": "http://digitalcollections.nypl.org/collections/street-views-of-new-york-city#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "3ba13340-c5ee-012f-c8d6-58d385a7bc34",
+    "title": "Staten Island post cards",
+    "url": "http://digitalcollections.nypl.org/collections/staten-island-post-cards#/?tab=about",
     "include": true
   }
 ]
