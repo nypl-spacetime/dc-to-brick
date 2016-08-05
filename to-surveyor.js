@@ -1,5 +1,5 @@
-const R = require('ramda')
-const H = require('highland')
+#!/usr/bin/env node
+
 const DATABASE_URL = 'postgres://postgres:postgres@localhost:5432/surveyor'
 const db = require('./db')(DATABASE_URL)
 
@@ -13,7 +13,9 @@ const collections = require('./data/collections.json')
   }))
 
 const collectionsMap = {}
-collections.forEach((collection) => collectionsMap[collection.id] = true)
+collections.forEach((collection) => {
+  collectionsMap[collection.id] = true
+})
 
 const items = require('./data/items.json')
   .filter((item) => collectionsMap[item.collection_id])
@@ -22,8 +24,7 @@ const items = require('./data/items.json')
     return item
   })
 
-
-function fillCollections(callback) {
+function fillCollections (callback) {
   db.fillTable('collections', collections, (err) => {
     if (err) {
       console.error('Error filling collections table: ', err.message)
@@ -36,7 +37,7 @@ function fillCollections(callback) {
   })
 }
 
-function fillItems(callback) {
+function fillItems (callback) {
   db.fillTable('items', items, (err) => {
     if (err) {
       console.error('Error filling items table: ', err.message)

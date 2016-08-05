@@ -17,7 +17,7 @@ const token = argv.t || process.env.DIGITAL_COLLECTIONS_TOKEN
 
 var db = levelup('./mods_cache')
 
-function getImageUrls(capture) {
+function getImageUrls (capture) {
   const sizes = {
     w: 760,
     q: 1600,
@@ -42,7 +42,7 @@ function getImageUrls(capture) {
   }
 }
 
-function toRow(capture) {
+function toRow (capture) {
   return {
     provider: 'nypl',
     id: capture.uuid,
@@ -56,7 +56,7 @@ function toRow(capture) {
   }
 }
 
-function getMODSLocation(mods) {
+function getMODSLocation (mods) {
   if (!mods) {
     return null
   }
@@ -75,7 +75,7 @@ function getMODSLocation(mods) {
   return location[0]
 }
 
-function getMODSDate(mods) {
+function getMODSDate (mods) {
   if (!mods) {
     return null
   }
@@ -88,22 +88,20 @@ function getMODSDate(mods) {
   var date = originInfo.filter((o) => o && (o.dateCreated || o.dateIssued || o.dateOther))
     .map((o) => o.dateCreated || o.dateIssued || o.dateOther)
     .filter((o) => o.keyDate)
-    .map(o => o['$'])
-    .sort((a, b) => {
-      return b.length - a.length;
-    })
+    .map((o) => o['$'])
+    .sort((a, b) => b.length - a.length)
 
   return date[0]
 }
 
-function modsToMetadata(mods) {
+function modsToMetadata (mods) {
   return {
     location: getMODSLocation(mods),
     date: getMODSDate(mods)
   }
 }
 
-function getMODS(row, callback) {
+function getMODS (row, callback) {
   db.get(row.id, function (err, metaStr) {
     if (err) {
       digitalCollections.mods({
@@ -117,7 +115,12 @@ function getMODS(row, callback) {
 
         const meta = modsToMetadata(mods)
 
-        db.put(row.id, JSON.stringify(meta), function (err) {
+        db.put(row.id, JSON.stringify(meta), (err) => {
+          if (err) {
+            callback(err)
+            return
+          }
+
           row.meta = Object.assign(row.meta, meta)
           callback(null, row)
         })
@@ -129,7 +132,7 @@ function getMODS(row, callback) {
   })
 }
 
-function getCollection(collection) {
+function getCollection (collection) {
   return digitalCollections.captures({
     uuid: collection.uuid,
     token: token
@@ -141,6 +144,7 @@ function getCollection(collection) {
 }
 
 H(require('./data/collections.json'))
+  .filter((collection) => collection.include)
   .map(getCollection)
   .flatten()
   .map(toRow)

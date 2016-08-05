@@ -46,5 +46,37 @@
     "title": "Collection of photographs of East River and Hudson River piers, Manhattan",
     "url": "http://digitalcollections.nypl.org/collections/collection-of-photographs-of-east-river-and-hudson-river-piers-manhattan#/?tab=about",
     "include": true
+  },
+
+
+  {
+    "uuid": "439afdd0-c62b-012f-66d1-58d385a7bc34",
+    "title": "Detroit Publishing Company postcards",
+    "url": "http://digitalcollections.nypl.org/collections/detroit-publishing-company-postcards#/?tab=about",
+    "include": false
+  },
+  {
+    "uuid": "0f38cb80-c5ae-012f-b01b-58d385a7bc34",
+    "title": "Doors, NYC",
+    "url": "http://digitalcollections.nypl.org/collections/doors-nyc#/?tab=about",
+    "include": false
+  },
+  {
+    "uuid": "aa9332d0-8a24-0132-6303-58d385a7b928",
+    "title": "Outer Boroughs: New York beyond Manhattan",
+    "url": "http://digitalcollections.nypl.org/collections/outer-boroughs-new-york-beyond-manhattan#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "5a9b7c30-c5ec-012f-32f8-58d385a7bc34",
+    "title": "Collection of photographs of New York City",
+    "url": "http://digitalcollections.nypl.org/collections/collection-of-photographs-of-new-york-city#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "36bd8b70-c60e-012f-f701-58d385a7bc34",
+    "title": "Collection of photographs of New York City, 1931-1942]",
+    "url": "http://digitalcollections.nypl.org/collections/collection-of-photographs-of-new-york-city-1931-1942#/?tab=about",
+    "include": true
   }
 ]

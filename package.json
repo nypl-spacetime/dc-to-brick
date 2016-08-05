@@ -1,7 +1,7 @@
 {
   "name": "dc-to-surveyor",
   "version": "1.0.0",
-  "description": "",
+  "description": "Reads a set of collection from NYPL Digital Collections API, converts to Surveyor data format, and writes to Surveyor database",
   "main": "index.js",
   "dependencies": {
     "JSONStream": "^1.1.4",
@@ -9,13 +9,18 @@
     "highland": "^3.0.0-beta.2",
     "level": "^1.4.0",
     "minimist": "^1.2.0",
-    "pg": "^6.0.3",
-    "ramda": "^0.21.0"
+    "pg": "^6.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^7.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nypl-spacetime/dc-to-surveyor.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
-  "author": "",
+  "author": "Bert Spaan",
   "license": "MIT"
 }
