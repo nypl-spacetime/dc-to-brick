@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
-const DATABASE_URL = 'postgres://postgres:postgres@localhost:5432/surveyor'
+var argv = require('minimist')(process.argv.slice(2), {
+  alias: {
+    d: 'database'
+  }
+})
+
+const DATABASE_URL = argv.d || 'postgres://postgres:postgres@localhost:5432/surveyor'
 const db = require('./db')(DATABASE_URL)
 
 const collections = require('./data/collections.json')
