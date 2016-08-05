@@ -19,7 +19,8 @@
     "url": "https://github.com/nypl-spacetime/dc-to-surveyor.git"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "import": "node from-dc.js -o data/items.json && node to-surveyor.js"
   },
   "author": "Bert Spaan",
   "license": "MIT"
