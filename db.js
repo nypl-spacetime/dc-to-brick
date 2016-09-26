@@ -41,10 +41,14 @@ module.exports = function (databaseUrl) {
   }
 
   function fillTable (table, rows, callback) {
-    const query = `
-      TRUNCATE ${table} CASCADE;`
+    if (!rows.length) {
+      callback('No rows specified')
+    }
 
-    executeQuery(query, null, (err) => {
+    const query = `
+      DELETE FROM ${table} WHERE provider = $1;`
+
+    executeQuery(query, [rows[0].provider], (err) => {
       if (err) {
         callback(err)
       } else {
@@ -64,7 +68,6 @@ module.exports = function (databaseUrl) {
       }
     })
   }
-
   return {
     executeQuery,
     fillTable
