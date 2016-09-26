@@ -57,7 +57,7 @@
     "uuid": "0f38cb80-c5ae-012f-b01b-58d385a7bc34",
     "title": "Doors, NYC",
     "url": "http://digitalcollections.nypl.org/collections/doors-nyc#/?tab=about",
-    "include": true
+    "include": false
   },
   {
     "uuid": "aa9332d0-8a24-0132-6303-58d385a7b928",
@@ -79,19 +79,19 @@
   },
   {
     "uuid": "726a47e0-c6cb-012f-fceb-58d385a7bc34",
-    "title": "Movie Houses of the Outer Boroughs: Past Glory and Adaptive Reuse, 1998-2001; a portfolio",
+    "title": "Movie Houses of the Outer Boroughs: Past Glory and Adaptive Reuse, 1998-2001",
     "url": "http://digitalcollections.nypl.org/collections/movie-houses-of-the-outer-boroughs-past-glory-and-adaptive-reuse-1998-2001#/?tab=about",
     "include": true
   },
   {
     "uuid": "b5533200-c6f6-012f-a39f-58d385a7bc34",
-    "title": "Villas on the Hudson : a collection of photo-lithographs of thirty-one country residences",
+    "title": "Villas on the Hudson: a collection of photo-lithographs of thirty-one country residences",
     "url": "http://digitalcollections.nypl.org/collections/villas-on-the-hudson-a-collection-of-photo-lithographs-of-thirty-one-country#/?tab=about",
     "include": true
   },
   {
     "uuid": "0378bd40-c6b4-012f-18bd-58d385a7bc34",
-    "title": "Central park in 1862. [Collection of photographs in portfolio, without text] Published by special permission of the commission",
+    "title": "Central park in 1862",
     "url": "http://digitalcollections.nypl.org/collections/central-park-in-1862-collection-of-photographs-in-portfolio-without-text#/?tab=about",
     "include": true
   },
@@ -123,6 +123,12 @@
     "uuid": "3ba13340-c5ee-012f-c8d6-58d385a7bc34",
     "title": "Staten Island post cards",
     "url": "http://digitalcollections.nypl.org/collections/staten-island-post-cards#/?tab=about",
+    "include": true
+  },
+  {
+    "uuid": "c693e190-44f4-0133-bf20-00505686d14e",
+    "title": "Collection of photographs of New York City, New York State and more by Max Hubacher",
+    "url": "http://digitalcollections.nypl.org/collections/collection-of-photographs-of-new-york-city-new-york-state-and-more-by-max#/?tab=about",
     "include": true
   }
 ]
