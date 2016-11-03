@@ -5,21 +5,21 @@ const path = require('path')
 const H = require('highland')
 const brickDb = require('to-brick')
 
-const DATA_DIR = 'data'
+const DATA_DIR = path.join(__dirname, 'data')
 const ORGANIZATION_ID = 'nypl'
 
 const TASKS = [
   {
-    task: 'geotag-photo',
+    id: 'geotag-photo',
     submissionsNeeded: 10
   },
   {
-    task: 'select-toponym',
+    id: 'select-toponym',
     submissionsNeeded: 5
   }
 ]
 
-const collections = require(`./${DATA_DIR}/collections.json`)
+const collections = require(path.join(DATA_DIR, 'collections.json'))
   .filter((collection) => collection.include)
   .map((collection) => ({
     organization_id: ORGANIZATION_ID,
@@ -34,7 +34,7 @@ collections.forEach((collection) => {
   collectionsMap[collection.id] = true
 })
 
-H(fs.createReadStream(path.join(__dirname, DATA_DIR, 'items.ndjson')))
+H(fs.createReadStream(path.join(DATA_DIR, 'items.ndjson')))
   .split()
   .compact()
   .map(JSON.parse)
@@ -44,24 +44,9 @@ H(fs.createReadStream(path.join(__dirname, DATA_DIR, 'items.ndjson')))
   .filter((item) => collectionsMap[item.collection_id])
   .toArray((items) => {
     const tasks = TASKS
-      .map((task) => ([
-        task.task, // task ID
-        null  // task description -- empty, for now
-      ]))
+      .map((task) => ({
+        id: task.id
+      }))
 
-    brickDb.addTasks(tasks)
-      .then(() => {
-        console.log(`Done adding ${tasks.length} tasks`)
-        return brickDb.addCollections(collections)
-      })
-      .then(() => {
-        console.log(`Done adding ${collections.length} collections`)
-        return brickDb.addItems(items)
-      })
-      .then(() => {
-        console.log(`Done adding ${items.length} items`)
-      })
-      .catch((err) => {
-        console.error(`Error: ${err.message}`)
-      })
+    brickDb.addAll(tasks, collections, items, true)
   })
