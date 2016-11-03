@@ -44,15 +44,14 @@ function getImageUrls (capture) {
 
 function toRow (capture) {
   return {
-    provider: 'nypl',
     id: capture.uuid,
-    title: capture.title,
-    url: `http://digitalcollections.nypl.org/items/${capture.uuid}`,
-    image_urls: getImageUrls(capture),
-    meta: {
-      image_id: capture.imageID
-    },
-    collection_id: capture.collection_id
+    collection_id: capture.collection_id,
+    data: {
+      title: capture.title,
+      url: `http://digitalcollections.nypl.org/items/${capture.uuid}`,
+      image_id: capture.imageID,
+      image_urls: getImageUrls(capture)
+    }
   }
 }
 
@@ -121,12 +120,12 @@ function getMODS (row, callback) {
             return
           }
 
-          row.meta = Object.assign(row.meta, meta)
+          row.data = Object.assign(row.data, meta)
           callback(null, row)
         })
       })
     } else {
-      row.meta = Object.assign(row.meta, JSON.parse(metaStr))
+      row.data = Object.assign(row.data, JSON.parse(metaStr))
       callback(null, row)
     }
   })
