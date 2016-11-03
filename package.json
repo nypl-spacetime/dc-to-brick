@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "JSONStream": "^1.1.4",
-    "digital-collections": "0.0.6",
+    "digital-collections": "0.1.0",
     "highland": "^3.0.0-beta.2",
     "level": "^1.4.0",
     "to-brick": "nypl-spacetime/to-brick"
