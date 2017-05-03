@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var argv = require('minimist')(process.argv.slice(2), {
+const argv = require('minimist')(process.argv.slice(2), {
   alias: {
     t: 'token',
     o: 'output'
@@ -10,12 +10,11 @@ var argv = require('minimist')(process.argv.slice(2), {
 const fs = require('fs')
 const digitalCollections = require('digital-collections')
 const H = require('highland')
-const JSONStream = require('JSONStream')
 const levelup = require('level')
 
 const token = argv.t || process.env.DIGITAL_COLLECTIONS_TOKEN
 
-var db = levelup('./mods_cache')
+const db = levelup('./mods_cache')
 
 function getImageUrls (capture) {
   const sizes = {
@@ -57,7 +56,7 @@ function toRow (capture) {
 
 function getMODSLocation (mods) {
   if (!mods) {
-    return null
+    return
   }
 
   var subject = mods.subject
@@ -76,7 +75,7 @@ function getMODSLocation (mods) {
 
 function getMODSDate (mods) {
   if (!mods) {
-    return null
+    return
   }
 
   var originInfo = mods.originInfo
@@ -101,7 +100,7 @@ function modsToMetadata (mods) {
 }
 
 function getMODS (row, callback) {
-  db.get(row.id, function (err, metaStr) {
+  db.get(row.id, (err, metaStr) => {
     if (err) {
       digitalCollections.mods({
         uuid: row.id,
@@ -136,6 +135,7 @@ function getCollection (collection) {
     uuid: collection.uuid,
     token: token
   })
+  .filter((capture) => capture.sortString.match(/0000000001$/))
   .map((capture) => Object.assign(capture, {
     collection_id: collection.uuid
   }))

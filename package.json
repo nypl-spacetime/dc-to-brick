@@ -1,10 +1,9 @@
 {
   "name": "dc-to-surveyor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Reads a set of collection from NYPL Digital Collections API, converts to Surveyor data format, and writes to Surveyor database",
   "main": "index.js",
   "dependencies": {
-    "JSONStream": "^1.1.4",
     "digital-collections": "0.1.0",
     "highland": "^3.0.0-beta.2",
     "level": "^1.4.0",
