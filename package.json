@@ -1,7 +1,7 @@
 {
-  "name": "dc-to-surveyor",
-  "version": "1.1.0",
-  "description": "Reads a set of collection from NYPL Digital Collections API, converts to Surveyor data format, and writes to Surveyor database",
+  "name": "dc-to-brick",
+  "version": "1.2.0",
+  "description": "Reads a set of collection from NYPL Digital Collections API, converts to brick-by-brick data format, and writes to brick-by-brick database",
   "main": "index.js",
   "dependencies": {
     "digital-collections": "0.1.0",
@@ -14,11 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nypl-spacetime/dc-to-surveyor.git"
+    "url": "https://github.com/nypl-spacetime/dc-to-brick.git"
   },
   "scripts": {
     "test": "standard",
-    "import": "node from-dc.js -o data/items.json && node to-surveyor.js"
+    "import": "node from-dc.js -o data/items.json && node to-brick.js"
   },
   "author": "Bert Spaan",
   "license": "MIT"
