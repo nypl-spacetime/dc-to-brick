@@ -47,7 +47,7 @@ H(fs.createReadStream(path.join(DATA_DIR, 'items.ndjson')))
       .map((task) => ({
         id: task.id
       }))
-console.log(tasks[0], collections[0], items[0])
+
     brickDb.addAll(tasks, collections, items, true)
       .then(() => console.log('\nDone!'))
       .catch((err) => {
