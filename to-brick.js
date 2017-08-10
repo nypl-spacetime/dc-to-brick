@@ -11,11 +11,11 @@ const ORGANIZATION_ID = 'nypl'
 const TASKS = [
   {
     id: 'geotag-photo',
-    submissionsNeeded: 10
+    submissionsNeeded: 5
   },
   {
     id: 'select-toponym',
-    submissionsNeeded: 5
+    submissionsNeeded: 1
   }
 ]
 

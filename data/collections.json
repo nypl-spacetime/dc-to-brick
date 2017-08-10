@@ -142,5 +142,17 @@
     "title": "Collection of photographs taken by Daniel B. Austin and his associate, Adam Dove, depicting buildings, street scenes and Brooklyn and Long Island views, particularly Flatbush, Gravesend and New Utrecht, and generally for the period 1885-1914",
     "url": "https://digitalcollections.nypl.org/collections/collection-of-photographs-taken-by-daniel-b-austin-and-his-associate-adam-dove#/?tab=about",
     "include": true
+  },
+  {
+    "uuid": "e5462600-c5d9-012f-a6a3-58d385a7bc34",
+    "title": "Farm Security Administration Photographs",
+    "url": "https://digitalcollections.nypl.org/collections/farm-security-administration-photographs#/?tab=about",
+    "include": false
+  },
+  {
+    "uuid": "530a11c0-c8b6-0131-2d6e-58d385a7b928",
+    "title": "Scrapbooks of New York City Views",
+    "url": "https://digitalcollections.nypl.org/collections/scrapbooks-of-new-york-city-views#/?tab=about",
+    "include": true
   }
 ]
